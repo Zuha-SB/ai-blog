@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { notFound } from "next/navigation";
 
-type BlogProps = { params: { slug?: string } }; // Make slug optional to prevent errors
+type BlogProps = { params: Promise<{ slug?: string }> };
 
 async function getBlogPost(slug: string | undefined) {
   if (!slug) return null; // Ensure slug exists before proceeding
